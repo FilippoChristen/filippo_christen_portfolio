@@ -1,0 +1,70 @@
+package:
+  name: low_power_serial_link
+  authors:
+    - "Filippo Christen <fchrist@student.ethz.ch>"
+
+dependencies:
+  common_cells:        { git: "https://github.com/pulp-platform/common_cells.git",       version: 1.28.0 }
+  axi:                 { git: "https://github.com/pulp-platform/axi.git",                version: 0.38.0 }
+  register_interface:  { git: "https://github.com/pulp-platform/register_interface.git", version: 0.3.8  }
+
+export_include_dirs:
+  - src/axis/include
+
+sources:
+  files:
+  # phy modules
+    - src/phy/src/Deskewer_Circuit_SAR_newdel_2004/Deskew.v
+    - src/phy/src/Deskewer_Circuit_SAR_newdel_2004/PLL_HARDWAR_deskew.v
+    - src/phy/src/Deskewer_Circuit_SAR_newdel_2004/LoopFilter_5b_deskew.v
+    - src/phy/src/Deskewer_Circuit_SAR_newdel_2004/DCO_Controller_deskew.v
+    - src/phy/src/Deskewer_Circuit_SAR_newdel_2004/DCO_Controller_deskew_3bit.v
+    
+    - src/phy/src/Deskewer_FWDCLK_quarterrate_sar_newdely_2004/VCDL.v
+    - src/phy/src/Deskewer_FWDCLK_quarterrate_sar_newdely_2004/Deskewer.v
+    - src/phy/src/Deskewer_FWDCLK_quarterrate_sar_newdely_2004/Alexander.v
+    - src/phy/src/Deskewer_FWDCLK_quarterrate_sar_newdely_2004/vdelay.v
+
+    - src/phy/src/DigitalDLL_new_lf170425_duty_synth/PLL_Wrapper_dll.v
+    - src/phy/src/DigitalDLL_new_lf170425_duty_synth/PLL_HARDWARE_dll.v
+    - src/phy/src/DigitalDLL_new_lf170425_duty_synth/LoopFilter_dll.v
+    - src/phy/src/DigitalDLL_new_lf170425_duty_synth/DCO_Controller_dll.v
+
+    - src/phy/src/DigitalDLL_QuarterRate_post_DEBUG-1904/DigDel.v
+    - src/phy/src/DigitalDLL_QuarterRate_post_DEBUG-1904/DigDLL.v
+    - src/phy/src/DigitalDLL_QuarterRate_post_DEBUG-1904/BBPFD_dll.v
+    - src/phy/src/DigitalDLL_QuarterRate_post_DEBUG-1904/vdelay_dll.v
+
+    - src/phy/src/SeriallinkModel2904/RX_CLK_GEN.v
+    - src/phy/src/SeriallinkModel2904/MUX8_1_JItter.v
+    - src/phy/src/SeriallinkModel2904/DEMUX1_8.v
+    - src/phy/src/SeriallinkModel2904/CLK_GEN.sv
+    - src/phy/src/SeriallinkModel2904/PN31.v
+
+  # common cells modules
+    - src/common_cells/*
+
+  # phy layer modules
+    - src/phy_wrapper/phy_wrapper.sv
+    - src/phy_wrapper/synchronizer.sv
+  
+  # nw layer modules
+    - src/nw_layer/nw_layer.sv
+
+  # data layer modules
+    - src/data_layer/rx_controller.sv
+    - src/data_layer/tx_controller.sv
+    - src/data_layer/serializer.sv
+    - src/data_layer/deserializer.sv
+    - src/data_layer/raw_mode_ctrl.sv
+    - src/data_layer/data_link_layer.sv
+
+  # serial link
+    - src/serial_link.sv
+
+  # utils
+    - src/utils/clock_shifter.sv
+
+  # testbenches
+    - test/axi_chan_compare.sv
+    - test/tb_serial_link.sv
