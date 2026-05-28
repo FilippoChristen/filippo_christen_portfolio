@@ -1,0 +1,41 @@
+# Visual Studio user/cache files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / MSVC build artifacts
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+*.ipch
+*.pch
+*.idb
+*.tlog
+*.lastbuildstate
+
+# CMake build output
+out/
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build.ninja
+rules.ninja
+
+# Generated experiment outputs
+*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
+Thumbs.db

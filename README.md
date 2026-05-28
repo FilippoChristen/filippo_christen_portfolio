@@ -28,6 +28,17 @@ This project presents a low-power, high-throughput AXI-interfaced serial link fo
 
 ---
 
+### 3. Fixed-Point Bitwidth Optimization in Arithmetic Circuits
+**Domain:** Numerical Optimization, Digital Hardware, Fixed-Point Arithmetic  
+**Tools:** C++, Python  
+
+This project implements a C++ framework for optimizing fixed-point bitwidths in arithmetic combinational circuits. It minimizes estimated hardware area while keeping numerical error below a target tolerance, comparing genetic algorithm and simulated annealing approaches across multiple circuit topologies.  
+
+[Explore project →](./project_3_fixed_point_bitwidth_optimization)
+
+---
+
+
 ## Additional Notes
 - All code was developed and validated in the intended simulation environments (MATLAB or QuestaSim).  
 - Some projects include references to external or proprietary code that is not redistributed here.  
